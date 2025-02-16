@@ -1,1 +1,17 @@
-<p>calendar works!</p>
+<div class="calendar-container">
+  <h2>{{ currentMonth }}</h2>
+
+  <div class="calendar-grid">
+    <!-- Nombres de los días -->
+    <div class="day-name" *ngFor="let day of ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb']">
+      {{ day }}
+    </div>
+
+    <!-- Días del mes organizados en filas -->
+    <div class="week" *ngFor="let week of weeks">
+      <div *ngFor="let day of week" class="day" [class.other-month]="!day.isCurrentMonth">
+        <span>{{ day.date.date() }}</span>
+      </div>
+    </div>
+  </div>
+</div>
